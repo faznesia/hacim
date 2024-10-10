@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H4CK BY FAZ</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #1e90ff;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #333;
+        }
+        h1 {
+            color: #1e90ff;
+        }
+        label {
+            font-size: 1.2em;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1c86ee;
+        }
+        .loading {
+            display: none;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            animation: popUp 0.5s ease-in-out;
+        }
+        .result p {
+            font-size: 1.2em;
+        }
+        @keyframes popUp {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>H4CK BY FAZ</h1>
+        <form id="generatorForm">
+            <label for="name">ISI ID FF:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Generate</button>
+        </form>
+        <div id="loading" class="loading">Loading...</div>
+        <div id="result" class="result">
+            <p>Email: <span id="email"></span></p>
+            <p>Password: <span id="password"></span></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('generatorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            if (!name) return;
+            
+            var loading = document.getElementById('loading');
+            var result = document.getElementById('result');
+            var emailSpan = document.getElementById('email');
+            var passwordSpan = document.getElementById('password');
+
+            loading.style.display = 'block';
+            result.style.display = 'none';
+
+            setTimeout(function() {
+                var { email, password } = getEmailAndPassword(name);
+
+                emailSpan.textContent = email;
+                passwordSpan.textContent = password;
+
+                loading.style.display = 'none';
+                result.style.display = 'block';
+            }, 2000);
+        });
+
+        const emailPasswordData = [
+           { "email": "budi1@gmail.com", "password": "budi123" },
+           { "email": "ani2@gmail.com", "password": "ani456" },
+           { "email": "agus3@gmail.com", "password": "agus789" },
+           { "email": "siti4@gmail.com", "password": "siti101" },
+           { "email": "rahmat5@gmail.com", "password": "rahmat202" },
+           { "email": "wawan6@gmail.com", "password": "wawan303" },
+           { "email": "lina7@gmail.com", "password": "lina404" },
+           { "email": "eko8@gmail.com", "password": "eko505" },
+           { "email": "yanti9@gmail.com", "password": "yanti606" },
+           { "email": "udin10@gmail.com", "password": "udin707" },
+           { "email": "dian11@gmail.com", "password": "dian808" },
+           { "email": "tini12@gmail.com", "password": "tini909" },
+           { "email": "joni13@gmail.com", "password": "joni1010" },
+           { "email": "rika14@gmail.com", "password": "rika1111" },
+           { "email": "yusuf15@gmail.com", "password": "yusuf1212" },
+           { "email": "maya16@gmail.com", "password": "maya1313" },
+           { "email": "agus17@gmail.com", "password": "agus1414" },
+           { "email": "rina18@gmail.com", "password": "rina1515" },
+           { "email": "andi19@gmail.com", "password": "andi1616" },
+           { "email": "sri20@gmail.com", "password": "sri1717" },
+           { "email": "wawan21@gmail.com", "password": "wawan1818" },
+           { "email": "dewi22@gmail.com", "password": "dewi1919" },
+           { "email": "anto23@gmail.com", "password": "anto2020" },
+           { "email": "sari24@gmail.com", "password": "sari2121" },
+           { "email": "edi25@gmail.com", "password": "edi2222" },
+           { "email": "nina26@gmail.com", "password": "nina2323" },
+           { "email": "agus27@gmail.com", "password": "agus2424" },
+           { "email": "lisa28@gmail.com", "password": "lisa2525" },
+           { "email": "mira29@gmail.com", "password": "mira2626" },
+           { "email": "andi30@gmail.com", "password": "andi2727" },
+           { "email": "siti31@gmail.com", "password": "siti2828" },
+           { "email": "budi32@gmail.com", "password": "budi2929" },
+           { "email": "nina33@gmail.com", "password": "nina3030" },
+           { "email": "wahyu34@gmail.com", "password": "wahyu3131" },
+           { "email": "dewi35@gmail.com", "password": "dewi3232" },
+           { "email": "andi36@gmail.com", "password": "andi3333" },
+           { "email": "ayu37@gmail.com", "password": "ayu3434" },
+           { "email": "rahmat38@gmail.com", "password": "rahmat3535" },
+           { "email": "lina39@gmail.com", "password": "lina3636" },
+           { "email": "eko40@gmail.com", "password": "eko3737" },
+           { "email": "dina41@gmail.com", "password": "dina3838" },
+           { "email": "udin42@gmail.com", "password": "udin3939" },
+           { "email": "rina43@gmail.com", "password": "rina4040" },
+        ];
+
+        function getEmailAndPassword(name) {
+            const index = name.length % emailPasswordData.length;
+            return emailPasswordData[index];
+        }
+    </script>
+</body>
+</html>
